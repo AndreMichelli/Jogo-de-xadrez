@@ -9,7 +9,7 @@ namespace Xadrez {
 
             tab.colocarPeca(new Torre(tab, Cor.preta), new posicao(0, 0));
             tab.colocarPeca(new Rei(tab,Cor.preta), new posicao(0, 4));
-
+            tab.colocarPeca(new Rei(tab, Cor.branca), new posicao(5, 4));
 
             Tela.imprimirTab(tab);
 

@@ -6,19 +6,19 @@ namespace tabuleiro {
     class Tabuleiro {
         public int linhas { get; set; }
         public int colunas { get; set; }
-        private peca[,] pecas;
+        private Peca[,] pecas;
 
         public Tabuleiro(int linhas, int colunas) {
             this.linhas = linhas;
             this.colunas = colunas;
-            pecas = new peca[linhas, colunas];
+            pecas = new Peca[linhas, colunas];
         }
 
-        public peca Peca(int linha, int coluna) {
+        public Peca Peca(int linha, int coluna) {
             return pecas[linha, coluna];
         }
 
-        public peca Peca(posicao pos) {
+        public Peca Peca(posicao pos) {
             return pecas[pos.linha, pos.coluna];
         }
 
@@ -27,7 +27,7 @@ namespace tabuleiro {
             return Peca(pos) != null;
         }
 
-        public void colocarPeca(peca p, posicao pos) {
+        public void colocarPeca(Peca p, posicao pos) {
 
             if (existePeca(pos)) {
                 throw new TabuleiroExeption("Já existe uma peça nesta posição");
