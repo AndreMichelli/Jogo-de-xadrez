@@ -1,12 +1,12 @@
 ﻿
 using tabuleiro;
 
-namespace Xadrez{
+namespace Xadrez {
     class PosicaXadrez {
 
         public char coluna { get; set; }
         public int linha { get; set; }
-        
+
         public PosicaXadrez(char coluna, int linha) {
             this.coluna = coluna;
             this.linha = linha;

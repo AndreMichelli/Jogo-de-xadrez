@@ -8,7 +8,7 @@ namespace Jogo_de_xadrez {
         }
 
         public override string ToString() {
-            return " R";
+            return "R ";
         }
     }
 }

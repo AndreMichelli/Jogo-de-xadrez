@@ -1,5 +1,6 @@
 ﻿using System;
 using tabuleiro;
+using Jogo_de_xadrez;
 namespace Xadrez {
     class Tela {
 
@@ -9,7 +10,7 @@ namespace Xadrez {
                 Console.Write(8 - i + "");
                 for (int j = 0; j < tab.colunas; j++) {
                     if (tab.Peca(i, j) == null) {
-                        Console.Write(" _");
+                        Console.Write("- ");
                     }
                     else {
                         Tela.imprimirPeca(tab.Peca(i, j));
@@ -18,15 +19,22 @@ namespace Xadrez {
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("  A B C D E F G H");
-            
+            Console.WriteLine(" A B C D E F G H");
+
+        }
+
+        public static PosicaXadrez lerPosicaoXadrez() {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+            return new PosicaXadrez(coluna, linha);
         }
 
         public static void imprimirPeca(Peca peca) {
             if (peca.cor == Cor.branca) {
-                Console.WriteLine(peca);
+                Console.Write(peca);
             }
-            else{
+            else {
                 ConsoleColor aux = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(peca);

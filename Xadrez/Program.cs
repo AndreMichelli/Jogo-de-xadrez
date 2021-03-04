@@ -5,15 +5,27 @@ using Jogo_de_xadrez;
 namespace Xadrez {
     class Program {
         static void Main(string[] args) {
-            Tabuleiro tab = new Tabuleiro(8, 8);
+            try {
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-            tab.colocarPeca(new Torre(tab, Cor.preta), new posicao(0, 0));
-            tab.colocarPeca(new Rei(tab,Cor.preta), new posicao(0, 4));
-            tab.colocarPeca(new Rei(tab, Cor.branca), new posicao(5, 4));
+                while (!partida.terminada) {
 
-            Tela.imprimirTab(tab);
+                    Console.Clear();
+                    Tela.imprimirTab(partida.tab);
 
-            Console.ReadLine();
+                    Console.WriteLine();
+
+                    Console.Write("Posição de origem da peça: ");
+                    posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                    Console.Write("Posição de destino da peça: ");
+                    posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+                    partida.executaMov(origem, destino);
+                }
+            }
+            catch (TabuleiroExeption e) {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
