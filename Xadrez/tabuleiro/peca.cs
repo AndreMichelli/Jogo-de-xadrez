@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace tabuleiro {
-    class Peca {
+    abstract class Peca {
 
         public posicao posicao { get; set; }
         public Cor cor { get; protected set; }
@@ -16,6 +16,8 @@ namespace tabuleiro {
             this.cor = cor;
             this.qntdMovimentos = 0;
         }
+
+        public abstract bool[,] movimentosPosiveis();
 
         public void incrementarQntdMov() {
             qntdMovimentos++;
